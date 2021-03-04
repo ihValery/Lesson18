@@ -1,6 +1,5 @@
 import UIKit
 import Alamofire
-import SwiftyJSON
 
 class AlbomsCollectionVC: UICollectionViewController
 {
@@ -8,31 +7,19 @@ class AlbomsCollectionVC: UICollectionViewController
     var albomId: Int!
     var photos: [Photos] = []
     
-    let itemsPerRow: CGFloat = 2
-    let sectionInserts = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         getData()
-    }
-    
-    override func viewWillAppear(_ animated: Bool)
-    {
-        
-        
-//        var loyaut = UICollectionViewFlowLayout()
-//        let sizeHW = collectionView.frame.width / 2 - 5
-//        loyaut = CGSize(width: sizeHW, height: sizeHW)
-//        collectionView.collectionViewLayout = loyaut
+        setSizeCell()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-       // let photoVS = segue.destination as! PhotoVC
+        
     }
     
-    func getData()
+    func getData() -> Void
     {
         guard let albomId = albomId else { return }
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/photos?albumId=\(albomId)") else { return }
@@ -51,6 +38,21 @@ class AlbomsCollectionVC: UICollectionViewController
         }.resume()
     }
     
+    func setSizeCell() -> Void
+    {
+        let layout = UICollectionViewFlowLayout()
+        let itemsPerRow: CGFloat = 3
+        let sectionInserts = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        let paddigWidht = sectionInserts.top * (itemsPerRow + 1)
+        let availableWigth = collectionView.frame.width - paddigWidht
+        let widhtPerItem = availableWigth / itemsPerRow
+        
+        layout.minimumLineSpacing = 20
+        layout.itemSize = CGSize(width: widhtPerItem, height:widhtPerItem)
+        layout.sectionInset = sectionInserts
+        collectionView.collectionViewLayout = layout
+    }
+    
     func designCell(with cell: UICollectionViewCell) -> Void
     {
         cell.contentView.layer.cornerRadius = 9
@@ -58,6 +60,7 @@ class AlbomsCollectionVC: UICollectionViewController
         cell.contentView.layer.borderColor = UIColor.clear.cgColor
         cell.contentView.layer.masksToBounds = true
 
+        cell.layer.cornerRadius = 9
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOffset = CGSize(width: 0, height: 2)
         cell.layer.shadowRadius = 4
@@ -66,13 +69,6 @@ class AlbomsCollectionVC: UICollectionViewController
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
     }
     
-    
-//    fileprivate func isHiddenElements(bool: Bool) -> Void {
-//        activityIndicator.isHidden = bool
-//        loadingLabel.isHidden = bool
-//        bool ? activityIndicator.stopAnimating() : activityIndicator.startAnimating()
-//    }
-
     // MARK:  - UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
@@ -92,33 +88,3 @@ class AlbomsCollectionVC: UICollectionViewController
     // MARK: - UICollectionViewDelegate
 
 }
-
-/*
-extension AlbomsCollectionVC: UICollectionViewDelegateFlowLayout
-{
-    //Размер наших элементов
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-    {
-        let paddigWidht = sectionInserts.top * (itemsPerRow + 1)
-        //Доступная ширина - относительно ширины рамки collectionView
-        let availableWigth = collectionView.frame.width - paddigWidht
-        let widhtPerItem = availableWigth / itemsPerRow
-        return CGSize(width: widhtPerItem, height: widhtPerItem)
-    }
-    //Отступ от рамки
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
-    {
-        return sectionInserts
-    }
-    //Горизонтальный отспут между элементами
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
-    {
-        return sectionInserts.top
-    }
-    //Вертикальный отступ между элементами
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
-    {
-        return sectionInserts.top
-    }
-}
-*/
