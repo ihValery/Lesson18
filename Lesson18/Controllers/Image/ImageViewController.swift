@@ -1,29 +1,31 @@
 import UIKit
 
-class ImageViewController: UIViewController {
-
+class ImageViewController: UIViewController
+{
     private let imageUrl = "https://cdn.wallscloud.net/converted/1199453145-priroda-Lw1p-7680x4320-MM-100.jpg"
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var loadingLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         fetchImage()
         isHiddenElements(bool: false)
-//        activityIndicator.hidesWhenStopped = true // будет скрываться после остановки
     }
     
-    fileprivate func isHiddenElements(bool: Bool) -> Void {
+    fileprivate func isHiddenElements(bool: Bool)
+    {
         activityIndicator.isHidden = bool
         loadingLabel.isHidden = bool
         bool ? activityIndicator.stopAnimating() : activityIndicator.startAnimating()
     }
 
-    fileprivate func fetchImage() -> Void {
+    fileprivate func fetchImage()
+    {
         guard let url = URL(string: imageUrl) else { return }
-
+        
         let session = URLSession.shared // синглтон
         
         //Будет сделан запрос и вернеться три объекта { замыкание и не забываем использовать self. }

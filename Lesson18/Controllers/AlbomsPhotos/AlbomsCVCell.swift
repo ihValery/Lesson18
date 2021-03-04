@@ -1,12 +1,13 @@
 import UIKit
 
-class AlbomsCVCell: UICollectionViewCell {
-    
+class AlbomsCVCell: UICollectionViewCell
+{
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var loadingLabel: UILabel!
     
-    func configure(with photo: Photos) {
+    func configure(with photo: Photos)
+    {
         DispatchQueue.global().async {
             guard let image = photo.thumbnailUrl else { return }
             guard let imageUrl = URL(string: image) else { return }

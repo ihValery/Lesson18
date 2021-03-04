@@ -52,17 +52,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BwM-Bx-k8r">
-                                            <rect key="frame" x="20.5" y="37" width="87" height="54"/>
+                                            <rect key="frame" x="30" y="39" width="68" height="50.5"/>
                                             <subviews>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="yVS-9s-G4b">
-                                                    <rect key="frame" x="0.0" y="0.0" width="87" height="20"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="68" height="20"/>
                                                 </activityIndicatorView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузка" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffz-7q-aii">
-                                                    <rect key="frame" x="0.0" y="30" width="87" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="87" id="kJI-8K-vYF"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffz-7q-aii">
+                                                    <rect key="frame" x="0.0" y="30" width="68" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" systemColor="systemGray2Color"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -77,9 +74,10 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="GGs-4y-Lgj" secondAttribute="bottom" id="6zi-1Q-Zu7"/>
                                     <constraint firstItem="GGs-4y-Lgj" firstAttribute="leading" secondItem="mDg-13-zfi" secondAttribute="leading" id="JQj-tu-gaF"/>
+                                    <constraint firstItem="ffz-7q-aii" firstAttribute="width" secondItem="mDg-13-zfi" secondAttribute="width" multiplier="0.53125" id="X37-ET-6M1"/>
                                     <constraint firstItem="BwM-Bx-k8r" firstAttribute="centerX" secondItem="mDg-13-zfi" secondAttribute="centerX" id="aXE-CN-USh"/>
                                     <constraint firstAttribute="trailing" secondItem="GGs-4y-Lgj" secondAttribute="trailing" id="dgu-bt-Pne"/>
-                                    <constraint firstItem="GGs-4y-Lgj" firstAttribute="top" secondItem="mDg-13-zfi" secondAttribute="top" id="qc8-t0-xvs"/>
+                                    <constraint firstItem="GGs-4y-Lgj" firstAttribute="top" secondItem="mDg-13-zfi" secondAttribute="top" id="o2l-tU-Nzu"/>
                                     <constraint firstItem="BwM-Bx-k8r" firstAttribute="centerY" secondItem="mDg-13-zfi" secondAttribute="centerY" id="weM-Jw-Xly"/>
                                 </constraints>
                                 <connections>

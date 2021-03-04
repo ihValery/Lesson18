@@ -1,7 +1,7 @@
 import UIKit
 
-class DetailViewController: UIViewController {
-
+class DetailViewController: UIViewController
+{
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var usernameLbl: UILabel!
     @IBOutlet weak var emailLbl: UILabel!
@@ -18,7 +18,8 @@ class DetailViewController: UIViewController {
 
     var user: User?
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         nameLbl.text = user?.name
@@ -35,7 +36,8 @@ class DetailViewController: UIViewController {
         chLbl.text = user?.company?.catchPhrase
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
         if segue.identifier == "showPosts",
             let postsVC = segue.destination as? PostsTableViewController {
             postsVC.user = user

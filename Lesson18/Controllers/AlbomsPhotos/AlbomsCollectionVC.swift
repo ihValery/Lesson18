@@ -31,23 +31,41 @@ class AlbomsCollectionVC: UICollectionViewController
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
-                
             } catch let error {
                 print("Error: ", error)
             }
         }.resume()
     }
+    //MARK:  - UICollectionViewDataSource
+
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        return photos.count
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellAlboms", for: indexPath) as! AlbomsCVCell
+        let photo = photos[indexPath.item]
+        cell.activityIndicator.startAnimating()
+        cell.configure(with: photo)
+        designCell(with: cell)
+        return cell
+    }
+    //MARK: - UICollectionViewDelegate
+
+    //MARK: - Design
     
     func setSizeCell() -> Void
     {
         let layout = UICollectionViewFlowLayout()
         let itemsPerRow: CGFloat = 3
-        let sectionInserts = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        let sectionInserts = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         let paddigWidht = sectionInserts.top * (itemsPerRow + 1)
         let availableWigth = collectionView.frame.width - paddigWidht
         let widhtPerItem = availableWigth / itemsPerRow
         
-        layout.minimumLineSpacing = 20
+        layout.minimumLineSpacing = 10
         layout.itemSize = CGSize(width: widhtPerItem, height:widhtPerItem)
         layout.sectionInset = sectionInserts
         collectionView.collectionViewLayout = layout
@@ -68,23 +86,4 @@ class AlbomsCollectionVC: UICollectionViewController
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
     }
-    
-    // MARK:  - UICollectionViewDataSource
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
-    {
-            return photos.count
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
-    {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellAlboms", for: indexPath) as! AlbomsCVCell
-        let photo = photos[indexPath.item]
-        cell.activityIndicator.startAnimating()
-        cell.configure(with: photo)
-        designCell(with: cell)
-        return cell
-    }
-    // MARK: - UICollectionViewDelegate
-
 }

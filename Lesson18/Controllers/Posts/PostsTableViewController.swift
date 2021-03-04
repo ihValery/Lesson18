@@ -1,15 +1,17 @@
 import UIKit
 
-class PostsTableViewController: UITableViewController {
-
+class PostsTableViewController: UITableViewController
+{
     var user: User!
     var posts: [Post] = []
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool)
+    {
         getPosts()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
         if segue.identifier == "showComments",
             let postId = sender as? Int,
             let commentsVC = segue.destination as? CommentsTableViewController {
@@ -17,8 +19,8 @@ class PostsTableViewController: UITableViewController {
         }
     }
     
-    private func getPosts() {
-        
+    private func getPosts()
+    {
         guard let userId = user.id else { return }
         
         let pathUrl = "https://jsonplaceholder.typicode.com/posts?userId=\(userId)"
@@ -40,11 +42,13 @@ class PostsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return posts.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "Cell")
         cell.textLabel?.text = posts[indexPath.row].title
         cell.detailTextLabel?.text = posts[indexPath.row].body
@@ -62,7 +66,8 @@ class PostsTableViewController: UITableViewController {
     
     // MARK: - Delegate
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
         let postId = posts[indexPath.row].id
         performSegue(withIdentifier: "showComments", sender: postId)
     }
