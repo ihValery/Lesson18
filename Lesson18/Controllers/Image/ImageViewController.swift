@@ -23,6 +23,10 @@ class ImageViewController: UIViewController
         guard let url = URL(string: imageUrl) else { return }
         
         AF.request(url)
+            .downloadProgress { progress in
+                let progress = Float(progress.fractionCompleted)
+                self.progressView.setProgress(progress, animated: true)
+            }
             .responseImage { response in
                 switch response.result {
                     case .success(let image):
@@ -32,10 +36,6 @@ class ImageViewController: UIViewController
                     case .failure(let error):
                         print(error)
                 }
-            }
-            .downloadProgress { progress in
-                let progress = Float(progress.fractionCompleted)
-                self.progressView.setProgress(progress, animated: true)
             }
     }
 }
