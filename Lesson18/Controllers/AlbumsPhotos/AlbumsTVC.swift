@@ -2,7 +2,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class AlbomsTVC: UITableViewController
+class AlbumsTVC: UITableViewController
 {
     var user: JSON!
     var albums: [JSON] = []
@@ -18,7 +18,7 @@ class AlbomsTVC: UITableViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.identifier == "goToAlboms" {
-            let photosCollectionVC = segue.destination as? AlbomsCollectionVC
+            let photosCollectionVC = segue.destination as? AlbumsCollectionVC
             let album = sender as? JSON
             photosCollectionVC?.album = album
         }

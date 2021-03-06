@@ -2,7 +2,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class AlbomsCollectionVC: UICollectionViewController
+class AlbumsCollectionVC: UICollectionViewController
 {
     var album: JSON!
     var photos: [JSON] = []
@@ -51,7 +51,7 @@ class AlbomsCollectionVC: UICollectionViewController
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellAlboms", for: indexPath) as! AlbomsCVCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellAlboms", for: indexPath) as! AlbumsCVCell
         guard let thumbnailUrl = photos[indexPath.item]["thumbnailUrl"].string else { return cell }
         cell.activityIndicator.startAnimating()
         cell.getPreview(with: thumbnailUrl)
