@@ -4,18 +4,15 @@ import SwiftyJSON
 
 class AlbomsCollectionVC: UICollectionViewController
 {
-//    var user: User!
     var album: JSON!
-//    var albomId: Int!
     var photos: [JSON] = []
-//    var photos: [Photos] = []
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         getData()
         setSizeCellCollection(collectionView: collectionView)
-    
+        title = "Album № \(album["id"])"
     }
     
     // MARK: - Navigation
@@ -23,7 +20,8 @@ class AlbomsCollectionVC: UICollectionViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         guard let photoVC = segue.destination as? PhotoVC else { return }
-        guard let photoUrl = sender as? String else { return }
+        let photoUrl = sender as! String
+//        guard let photoUrl = sender as? String else { return }
         photoVC.configurePhotoAbout(with: photoUrl)
     }
     
@@ -42,20 +40,8 @@ class AlbomsCollectionVC: UICollectionViewController
                     print(error)
             }
         }
-        
-        
-//        URLSession.shared.dataTask(with: url) { (data, _, _) in
-//            guard let data = data else { return }
-//            do {
-//                self.photos = try JSONDecoder().decode([Photos].self, from: data)
-//                DispatchQueue.main.async {
-//                    self.collectionView.reloadData()
-//                }
-//            } catch let error {
-//                print("Error: ", error)
-//            }
-//        }.resume()
     }
+    
     //MARK:  - UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
@@ -66,10 +52,9 @@ class AlbomsCollectionVC: UICollectionViewController
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellAlboms", for: indexPath) as! AlbomsCVCell
-        cell.thumbnailUrl = photos[indexPath.item]["thumbnailUrl"].string
+        guard let thumbnailUrl = photos[indexPath.item]["thumbnailUrl"].string else { return cell }
         cell.activityIndicator.startAnimating()
-        cell.getPreview()
-//        cell.getPreview(with: photo)
+        cell.getPreview(with: thumbnailUrl)
         designCell(with: cell)
         return cell
     }
@@ -78,7 +63,7 @@ class AlbomsCollectionVC: UICollectionViewController
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        let photo = photos[indexPath.item].url
-        performSegue(withIdentifier: "goToPhoto", sender: photo)
+        let photoUrl = photos[indexPath.item]["url"].string
+        performSegue(withIdentifier: "goToPhoto", sender: photoUrl)
     }
 }
