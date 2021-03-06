@@ -9,9 +9,7 @@ class AlbomsCVCell: UICollectionViewCell
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var loadingLabel: UILabel!
     
-    var thumbnailUrl: String!
-    
-    func getPreview()
+    func getPreview(with thumbnailUrl: String)
     {
         AF.request(thumbnailUrl).responseImage { [weak self] response in
             if case .success(let image) = response.result {
