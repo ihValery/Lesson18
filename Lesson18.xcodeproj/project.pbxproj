@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D6ADBC725ED00B0009EE2C2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6ADBC625ED00B0009EE2C2 /* DetailViewController.swift */; };
 		2D6ADBCB25ED0540009EE2C2 /* PostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6ADBCA25ED0540009EE2C2 /* PostsTableViewController.swift */; };
-		2D6ADBD625ED05A6009EE2C2 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6ADBD525ED05A6009EE2C2 /* CommentsTableViewController.swift */; };
+		2D6ADBD625ED05A6009EE2C2 /* CommentsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6ADBD525ED05A6009EE2C2 /* CommentsTVC.swift */; };
 		2DB599D125E652FE00654E33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB599D025E652FE00654E33 /* AppDelegate.swift */; };
 		2DB599D325E652FE00654E33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB599D225E652FE00654E33 /* SceneDelegate.swift */; };
 		2DB599D825E652FE00654E33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB599D625E652FE00654E33 /* Main.storyboard */; };
@@ -26,6 +26,7 @@
 		8090394725EFAABE00ABFE7B /* AlbomsCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090394625EFAABE00ABFE7B /* AlbomsCollectionVC.swift */; };
 		8090394A25EFBB4700ABFE7B /* AlbomsCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090394925EFBB4700ABFE7B /* AlbomsCVCell.swift */; };
 		8090395725EFD3D900ABFE7B /* PhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090395625EFD3D900ABFE7B /* PhotoVC.swift */; };
+		80A7FFC125F3A0AD00E70A96 /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7FFC025F3A0AD00E70A96 /* URLConstants.swift */; };
 		DBA44D5B6A3AEBA233FBCE38 /* Pods_NetHM17.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A9034810D68E77A565408F /* Pods_NetHM17.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +35,7 @@
 		2830CE5DBB1991061A65CAEA /* Pods-NetHM17.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetHM17.release.xcconfig"; path = "Target Support Files/Pods-NetHM17/Pods-NetHM17.release.xcconfig"; sourceTree = "<group>"; };
 		2D6ADBC625ED00B0009EE2C2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2D6ADBCA25ED0540009EE2C2 /* PostsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewController.swift; sourceTree = "<group>"; };
-		2D6ADBD525ED05A6009EE2C2 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
+		2D6ADBD525ED05A6009EE2C2 /* CommentsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTVC.swift; sourceTree = "<group>"; };
 		2DB599CD25E652FE00654E33 /* Lesson18.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lesson18.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB599D025E652FE00654E33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DB599D225E652FE00654E33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		8090394625EFAABE00ABFE7B /* AlbomsCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbomsCollectionVC.swift; sourceTree = "<group>"; };
 		8090394925EFBB4700ABFE7B /* AlbomsCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbomsCVCell.swift; sourceTree = "<group>"; };
 		8090395625EFD3D900ABFE7B /* PhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoVC.swift; sourceTree = "<group>"; };
+		80A7FFC025F3A0AD00E70A96 /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		DD842B76CB1319F4769F5BAD /* Pods-NetHM17.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetHM17.debug.xcconfig"; path = "Target Support Files/Pods-NetHM17/Pods-NetHM17.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,14 +70,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2D6ADBC525ED008E009EE2C2 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				2D6ADBC625ED00B0009EE2C2 /* DetailViewController.swift */,
-			);
-			path = Detail;
-			sourceTree = "<group>";
-		};
 		2D6ADBCD25ED0543009EE2C2 /* Posts */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,7 +81,7 @@
 		2D6ADBD825ED05AC009EE2C2 /* Comments */ = {
 			isa = PBXGroup;
 			children = (
-				2D6ADBD525ED05A6009EE2C2 /* CommentsTableViewController.swift */,
+				2D6ADBD525ED05A6009EE2C2 /* CommentsTVC.swift */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -135,6 +129,7 @@
 			children = (
 				2DB599F625E65EE400654E33 /* User.swift */,
 				802C7A0225F2206400704691 /* Extension.swift */,
+				80A7FFC025F3A0AD00E70A96 /* URLConstants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,7 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				2DB599EF25E65E7600654E33 /* UsersVC.swift */,
-				2D6ADBC525ED008E009EE2C2 /* Detail */,
+				2D6ADBC625ED00B0009EE2C2 /* DetailViewController.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -334,7 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D6ADBC725ED00B0009EE2C2 /* DetailViewController.swift in Sources */,
-				2D6ADBD625ED05A6009EE2C2 /* CommentsTableViewController.swift in Sources */,
+				2D6ADBD625ED05A6009EE2C2 /* CommentsTVC.swift in Sources */,
 				8090394725EFAABE00ABFE7B /* AlbomsCollectionVC.swift in Sources */,
 				2DB599F025E65E7600654E33 /* UsersVC.swift in Sources */,
 				2DB599D125E652FE00654E33 /* AppDelegate.swift in Sources */,
@@ -346,6 +341,7 @@
 				2DB599E725E6533F00654E33 /* MainViewController.swift in Sources */,
 				2DB599F725E65EE400654E33 /* User.swift in Sources */,
 				2D6ADBCB25ED0540009EE2C2 /* PostsTableViewController.swift in Sources */,
+				80A7FFC125F3A0AD00E70A96 /* URLConstants.swift in Sources */,
 				8090394A25EFBB4700ABFE7B /* AlbomsCVCell.swift in Sources */,
 				8090393525EF9C8200ABFE7B /* AlbomsTVC.swift in Sources */,
 			);

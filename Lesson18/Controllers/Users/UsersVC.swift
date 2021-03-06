@@ -4,8 +4,7 @@ import SwiftyJSON
 
 class UsersVC: UITableViewController
 {
-    private let jsonUrl = "https://jsonplaceholder.typicode.com/users"
-    private var users: [User] = []
+    private var users: [JSON] = []
 
     // MARK: - Navigation
 
@@ -13,8 +12,23 @@ class UsersVC: UITableViewController
     {
         if let desination = segue.destination as? DetailViewController,
            //Достучался до ясейки и прокинули юзера
-            let user = sender as? User {
+            let user = sender as? JSON {
             desination.user = user
+        }
+    }
+    
+    func fetchData()
+    {
+        guard let url = URL(string: URLConstants.urlUsers) else { return }
+
+        AF.request(url).responseJSON { [weak self] response in
+            switch response.result {
+                case .success(let data):
+                    self?.users = JSON(data).arrayValue
+                    self?.tableView.reloadData()
+                case .failure(let error):
+                    print(error)
+            }
         }
     }
 
@@ -28,8 +42,8 @@ class UsersVC: UITableViewController
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text = users[indexPath.row].name?.uppercased()
-        cell.detailTextLabel?.text = users[indexPath.row].username
+        cell.textLabel?.text = users[indexPath.row]["name"].string?.uppercased()
+        cell.detailTextLabel?.text = users[indexPath.row]["username"].string
         zebraTable(with: cell, indexPath: indexPath)
         return cell
     }
@@ -40,22 +54,5 @@ class UsersVC: UITableViewController
     {
         let user = users[indexPath.row]
         performSegue(withIdentifier: "showDetail", sender: user)
-    }
-
-    func fetchData()
-    {
-        guard let url = URL(string: jsonUrl) else { return }
-
-        URLSession.shared.dataTask(with: url) { (data, _, _) in
-            guard let data = data else { return }
-            do {
-                self.users = try JSONDecoder().decode([User].self, from: data)
-            } catch let error {
-                print(error)
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }.resume()
     }
 }

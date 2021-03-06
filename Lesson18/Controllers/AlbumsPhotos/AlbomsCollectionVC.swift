@@ -20,15 +20,15 @@ class AlbomsCollectionVC: UICollectionViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         guard let photoVC = segue.destination as? PhotoVC else { return }
-        let photoUrl = sender as! String
-//        guard let photoUrl = sender as? String else { return }
-        photoVC.configurePhotoAbout(with: photoUrl)
+        let photo = sender as! JSON
+        photoVC.text = photo["title"].string ?? "no title"
+        photoVC.configurePhotoAbout(with: photo["url"].stringValue)
     }
     
     func getData()
     {
         guard let albumId = album["id"].int else { return }
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/photos?albumId=\(albumId)") else { return }
+        guard let url = URL(string: "\(URLConstants.urlPhotos)\(albumId)") else { return }
         
         AF.request(url).responseJSON { response in
             print(response)
@@ -63,7 +63,7 @@ class AlbomsCollectionVC: UICollectionViewController
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        let photoUrl = photos[indexPath.item]["url"].string
-        performSegue(withIdentifier: "goToPhoto", sender: photoUrl)
+        let photo = photos[indexPath.item]
+        performSegue(withIdentifier: "goToPhoto", sender: photo)
     }
 }

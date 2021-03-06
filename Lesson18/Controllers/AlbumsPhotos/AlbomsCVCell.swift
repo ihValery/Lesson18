@@ -13,7 +13,7 @@ class AlbomsCVCell: UICollectionViewCell
     {
         AF.request(thumbnailUrl).responseImage { [weak self] response in
             if case .success(let image) = response.result {
-                self?.activityIndicator.stopAnimating()
+                isHiddenElements(self!.loadingLabel, self!.activityIndicator, bool: true)
                 self?.photoImage.image = image
             }
         }
