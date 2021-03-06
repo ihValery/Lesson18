@@ -10,6 +10,8 @@ class PostsTableViewController: UITableViewController
         getPosts()
     }
     
+    // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.identifier == "showComments",
@@ -40,7 +42,7 @@ class PostsTableViewController: UITableViewController
         }.resume()
     }
 
-    // MARK: - Table view data source
+    // MARK: - TableSiewSataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -50,21 +52,15 @@ class PostsTableViewController: UITableViewController
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "Cell")
-        cell.textLabel?.text = posts[indexPath.row].title
-        cell.detailTextLabel?.text = posts[indexPath.row].body
+        cell.textLabel?.text = posts[indexPath.row].title?.firstCapitalized
+        cell.detailTextLabel?.text = posts[indexPath.row].body?.firstCapitalized
         cell.textLabel?.numberOfLines = 0
         cell.detailTextLabel?.numberOfLines = 0
-        
-        switch indexPath.row.isMultiple(of: 2) {
-            case false:
-                cell.contentView.backgroundColor = .systemGray6
-            default:
-                cell.contentView.backgroundColor = .white
-        }
+        zebraTable(with: cell, indexPath: indexPath)
         return cell
     }
     
-    // MARK: - Delegate
+    // MARK: - TableViewDelegate
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {

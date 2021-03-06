@@ -1,19 +1,24 @@
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class UsersVC: UITableViewController
 {
     private let jsonUrl = "https://jsonplaceholder.typicode.com/users"
     private var users: [User] = []
 
+    // MARK: - Navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if let desination = segue.destination as? DetailViewController,
+           //Достучался до ясейки и прокинули юзера
             let user = sender as? User {
             desination.user = user
         }
     }
 
-    // MARK: - Table view data source
+    // MARK: - TableSiewSataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -22,16 +27,10 @@ class UsersVC: UITableViewController
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserCell
-        let user = users[indexPath.row]
-        cell.configure(with: user)
-        
-        switch indexPath.row.isMultiple(of: 2) {
-            case false:
-                cell.contentView.backgroundColor = .systemGray6
-            default:
-                cell.contentView.backgroundColor = .white
-        }
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cell")
+        cell.textLabel?.text = users[indexPath.row].name?.uppercased()
+        cell.detailTextLabel?.text = users[indexPath.row].username
+        zebraTable(with: cell, indexPath: indexPath)
         return cell
     }
 

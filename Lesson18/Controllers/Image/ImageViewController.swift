@@ -12,17 +12,10 @@ class ImageViewController: UIViewController
     {
         super.viewDidLoad()
         fetchImage()
-        isHiddenElements(bool: false)
-    }
-    
-    fileprivate func isHiddenElements(bool: Bool)
-    {
-        activityIndicator.isHidden = bool
-        loadingLabel.isHidden = bool
-        bool ? activityIndicator.stopAnimating() : activityIndicator.startAnimating()
+        isHiddenElements(loadingLabel, activityIndicator, bool: false)
     }
 
-    fileprivate func fetchImage()
+    private func fetchImage()
     {
         guard let url = URL(string: imageUrl) else { return }
         
@@ -40,7 +33,7 @@ class ImageViewController: UIViewController
             if let data = data, let image = UIImage(data: data) {
                 //Выход из фонового режима в основной поток, и все это делать в асинхронном режиме
                 DispatchQueue.main.async {
-                    self.isHiddenElements(bool: true)
+                    isHiddenElements(self.loadingLabel, self.activityIndicator, bool: true)
                     self.imageView.image = image
                 }
             }

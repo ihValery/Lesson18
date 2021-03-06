@@ -16,12 +16,19 @@ class DetailViewController: UIViewController
     @IBOutlet weak var bsLbl: UILabel!
     @IBOutlet weak var chLbl: UILabel!
 
+    @IBOutlet weak var bttnToDolist: UIButton!
+    @IBOutlet weak var bttnAlbum: UIButton!
+    @IBOutlet weak var bttnPost: UIButton!
+    
     var user: User?
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        designButton(button: bttnPost)
+        designButton(button: bttnAlbum)
+        designButton(button: bttnToDolist)
+        
         nameLbl.text = user?.name
         usernameLbl.text = user?.username
         emailLbl.text = user?.email
@@ -35,6 +42,8 @@ class DetailViewController: UIViewController
         bsLbl.text = user?.company?.bs
         chLbl.text = user?.company?.catchPhrase
     }
+    
+    // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
