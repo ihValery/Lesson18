@@ -18,9 +18,9 @@
 		2DB599E725E6533F00654E33 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB599E625E6533F00654E33 /* MainViewController.swift */; };
 		2DB599EA25E6538000654E33 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB599E925E6538000654E33 /* ImageViewController.swift */; };
 		2DB599F025E65E7600654E33 /* UsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB599EF25E65E7600654E33 /* UsersVC.swift */; };
-		2DB599F325E65EA000654E33 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB599F225E65EA000654E33 /* UserCell.swift */; };
 		2DB599F725E65EE400654E33 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB599F625E65EE400654E33 /* User.swift */; };
 		2DB59A0425E6601600654E33 /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB59A0325E6601600654E33 /* UserActionCell.swift */; };
+		802C7A0325F2206400704691 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C7A0225F2206400704691 /* Extension.swift */; };
 		8090393225EF9BEC00ABFE7B /* Alboms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8090393125EF9BEC00ABFE7B /* Alboms.storyboard */; };
 		8090393525EF9C8200ABFE7B /* AlbomsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090393425EF9C8200ABFE7B /* AlbomsTVC.swift */; };
 		8090394725EFAABE00ABFE7B /* AlbomsCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090394625EFAABE00ABFE7B /* AlbomsCollectionVC.swift */; };
@@ -45,9 +45,9 @@
 		2DB599E625E6533F00654E33 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2DB599E925E6538000654E33 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		2DB599EF25E65E7600654E33 /* UsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersVC.swift; sourceTree = "<group>"; };
-		2DB599F225E65EA000654E33 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		2DB599F625E65EE400654E33 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2DB59A0325E6601600654E33 /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
+		802C7A0225F2206400704691 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		8090393125EF9BEC00ABFE7B /* Alboms.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alboms.storyboard; sourceTree = "<group>"; };
 		8090393425EF9C8200ABFE7B /* AlbomsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbomsTVC.swift; sourceTree = "<group>"; };
 		8090394625EFAABE00ABFE7B /* AlbomsCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbomsCollectionVC.swift; sourceTree = "<group>"; };
@@ -134,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				2DB599F625E65EE400654E33 /* User.swift */,
+				802C7A0225F2206400704691 /* Extension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -144,8 +145,7 @@
 				2DB59A0625E677D600654E33 /* MainActions */,
 				2DB59A0E25E6781100654E33 /* Image */,
 				2DB59A0A25E677F500654E33 /* Users */,
-				2D6ADBC525ED008E009EE2C2 /* Detail */,
-				8090393025EF9BBC00ABFE7B /* AlbomsPhotos */,
+				8090393025EF9BBC00ABFE7B /* AlbumsPhotos */,
 				2D6ADBCD25ED0543009EE2C2 /* Posts */,
 				2D6ADBD825ED05AC009EE2C2 /* Comments */,
 			);
@@ -176,8 +176,8 @@
 		2DB59A0A25E677F500654E33 /* Users */ = {
 			isa = PBXGroup;
 			children = (
-				2DB599F225E65EA000654E33 /* UserCell.swift */,
 				2DB599EF25E65E7600654E33 /* UsersVC.swift */,
+				2D6ADBC525ED008E009EE2C2 /* Detail */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -207,7 +207,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		8090393025EF9BBC00ABFE7B /* AlbomsPhotos */ = {
+		8090393025EF9BBC00ABFE7B /* AlbumsPhotos */ = {
 			isa = PBXGroup;
 			children = (
 				8090393425EF9C8200ABFE7B /* AlbomsTVC.swift */,
@@ -215,7 +215,7 @@
 				8090394925EFBB4700ABFE7B /* AlbomsCVCell.swift */,
 				8090395625EFD3D900ABFE7B /* PhotoVC.swift */,
 			);
-			path = AlbomsPhotos;
+			path = AlbumsPhotos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,8 +338,8 @@
 				8090394725EFAABE00ABFE7B /* AlbomsCollectionVC.swift in Sources */,
 				2DB599F025E65E7600654E33 /* UsersVC.swift in Sources */,
 				2DB599D125E652FE00654E33 /* AppDelegate.swift in Sources */,
-				2DB599F325E65EA000654E33 /* UserCell.swift in Sources */,
 				2DB599EA25E6538000654E33 /* ImageViewController.swift in Sources */,
+				802C7A0325F2206400704691 /* Extension.swift in Sources */,
 				2DB59A0425E6601600654E33 /* UserActionCell.swift in Sources */,
 				8090395725EFD3D900ABFE7B /* PhotoVC.swift in Sources */,
 				2DB599D325E652FE00654E33 /* SceneDelegate.swift in Sources */,
