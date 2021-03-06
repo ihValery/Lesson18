@@ -1,9 +1,11 @@
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class PostsTableViewController: UITableViewController
 {
-    var user: User!
-    var posts: [Post] = []
+    var user: JSON!
+    var posts: [JSON] = []
     
     override func viewWillAppear(_ animated: Bool)
     {
@@ -14,32 +16,28 @@ class PostsTableViewController: UITableViewController
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.identifier == "showComments",
-            let postId = sender as? Int,
-            let commentsVC = segue.destination as? CommentsTableViewController {
-            commentsVC.postId = postId
+        if segue.identifier == "goToComment" {
+            guard let commentVC = segue.destination as? CommentsTVC else { return }
+            guard let postId = sender as? Int else { return }
+            commentVC.getComments(with: "\(URLConstants.urlComments)/\(postId)/comments")
         }
     }
     
     private func getPosts()
     {
-        guard let userId = user.id else { return }
-        
-        let pathUrl = "https://jsonplaceholder.typicode.com/posts?userId=\(userId)"
+        guard let userId = user["id"].int else { return }
+        guard let url = URL(string: "\(URLConstants.urlPosts)\(userId)") else { return }
 
-        guard let url = URL(string: pathUrl) else { return }
-
-        URLSession.shared.dataTask(with: url) { (data, _, _) in
-            guard let data = data else { return }
-            do {
-                self.posts = try JSONDecoder().decode([Post].self, from: data)
-            } catch let error {
-                print(error)
+        AF.request(url).responseJSON { [weak self] response in
+            switch response.result {
+                case .success(let data):
+                    //Когда ? после self а когда не надо
+                    self?.posts = JSON(data).arrayValue
+                    self?.tableView.reloadData()
+                case.failure(let error):
+                    print(error)
             }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }.resume()
+        }
     }
 
     // MARK: - TableSiewSataSource
@@ -52,8 +50,8 @@ class PostsTableViewController: UITableViewController
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "Cell")
-        cell.textLabel?.text = posts[indexPath.row].title?.firstCapitalized
-        cell.detailTextLabel?.text = posts[indexPath.row].body?.firstCapitalized
+        cell.textLabel?.text = posts[indexPath.row]["title"].string?.firstCapitalized
+        cell.detailTextLabel?.text = posts[indexPath.row]["body"].string?.firstCapitalized
         cell.textLabel?.numberOfLines = 0
         cell.detailTextLabel?.numberOfLines = 0
         zebraTable(with: cell, indexPath: indexPath)
@@ -61,10 +59,10 @@ class PostsTableViewController: UITableViewController
     }
     
     // MARK: - TableViewDelegate
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        let postId = posts[indexPath.row].id
-        performSegue(withIdentifier: "showComments", sender: postId)
+        let postId = posts[indexPath.row]["id"].int
+        performSegue(withIdentifier: "goToComment", sender: postId)
     }
 }

@@ -4,7 +4,7 @@ import SwiftyJSON
 
 class AlbomsTVC: UITableViewController
 {
-    var user: User!
+    var user: JSON!
     var albums: [JSON] = []
     
     override func viewDidLoad()
@@ -27,8 +27,8 @@ class AlbomsTVC: UITableViewController
     
     private func getData()
     {
-        guard let userId = user.id else { return }
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/albums?userId=\(userId)") else { return }
+        guard let userId = user["id"].int else { return }
+        guard let url = URL(string: "\(URLConstants.urlAlbums)\(userId)") else { return }
         
         AF.request(url).responseJSON { response in
             switch response.result {

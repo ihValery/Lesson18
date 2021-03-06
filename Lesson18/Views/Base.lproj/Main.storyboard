@@ -412,7 +412,7 @@
         <!--Comments-->
         <scene sceneID="fXP-El-s3l">
             <objects>
-                <tableViewController id="fk6-QD-W7z" customClass="CommentsTableViewController" customModule="Lesson18" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="fk6-QD-W7z" customClass="CommentsTVC" customModule="Lesson18" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cmW-Hg-dOW">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -443,7 +443,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Posts" id="rkF-Zo-dcR"/>
                     <connections>
-                        <segue destination="fk6-QD-W7z" kind="show" identifier="showComments" id="rqK-NY-gAa"/>
+                        <segue destination="fk6-QD-W7z" kind="show" identifier="goToComment" id="2XD-sL-Rxu"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRv-FS-yn0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -1,4 +1,5 @@
 import UIKit
+import SwiftyJSON
 
 class DetailViewController: UIViewController
 {
@@ -20,7 +21,7 @@ class DetailViewController: UIViewController
     @IBOutlet weak var bttnAlbum: UIButton!
     @IBOutlet weak var bttnPost: UIButton!
     
-    var user: User?
+    var user: JSON!
 
     override func viewDidLoad()
     {
@@ -29,18 +30,18 @@ class DetailViewController: UIViewController
         designButton(button: bttnAlbum)
         designButton(button: bttnToDolist)
         
-        nameLbl.text = user?.name
-        usernameLbl.text = user?.username
-        emailLbl.text = user?.email
-        phoneLbl.text = user?.phone
-        websiteLbl.text = user?.website
-        streetLbl.text = user?.address?.street
-        suitLbl.text = user?.address?.suite
-        cityLbl.text = user?.address?.city
-        zipCodeLbl.text = user?.address?.zipcode
-        companyLbl.text = user?.company?.name
-        bsLbl.text = user?.company?.bs
-        chLbl.text = user?.company?.catchPhrase
+        nameLbl.text = user["name"].string
+        usernameLbl.text = user["username"].string
+        emailLbl.text = user["email"].string
+        phoneLbl.text = user["phone"].string
+        websiteLbl.text = user["website"].string
+        streetLbl.text = user["address"]["street"].string
+        suitLbl.text = user["address"]["suite"].string
+        cityLbl.text = user["address"]["city"].string
+        zipCodeLbl.text = user["address"]["zipcode"].string
+        companyLbl.text = user["company"]["name"].string
+        bsLbl.text = user["company"]["bs"].string
+        chLbl.text = user["company"]["catchPhrase"].string
     }
     
     // MARK: - Navigation
@@ -48,7 +49,7 @@ class DetailViewController: UIViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.identifier == "showPosts",
-            let postsVC = segue.destination as? PostsTableViewController {
+           let postsVC = segue.destination as? PostsTableViewController {
             postsVC.user = user
         } else if segue.identifier == "goToAlboms",
                   let albomsVC = segue.destination as? AlbomsTVC {
