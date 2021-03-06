@@ -49,7 +49,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mv9-eO-4KH">
-                                            <rect key="frame" x="136.33333333333334" y="54.666666666666657" width="66.333333333333343" height="34"/>
+                                            <rect key="frame" x="136.66666666666666" y="54.666666666666657" width="66" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -121,28 +121,35 @@
                                 <rect key="frame" x="0.0" y="88" width="390" height="756"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2SP-3a-9JK">
-                                <rect key="frame" x="150" y="422" width="90" height="54"/>
+                                <rect key="frame" x="65" y="422" width="260" height="54"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YTs-n9-ATP">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="20"/>
                                     </activityIndicatorView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aq-ah-MQn">
-                                        <rect key="frame" x="0.0" y="30" width="90" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kY-P0-Vpx">
+                                        <rect key="frame" x="0.0" y="30" width="260" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                        <color key="textColor" systemColor="systemGray2Color"/>
+                                        <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="oXd-vV-gX3">
+                                <rect key="frame" x="25" y="501" width="340" height="2.6666666666666856"/>
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AIK-hy-4ST"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6lm-Bm-aiF" firstAttribute="leading" secondItem="AIK-hy-4ST" secondAttribute="leading" id="4KI-Op-k6B"/>
+                            <constraint firstItem="oXd-vV-gX3" firstAttribute="leading" secondItem="AIK-hy-4ST" secondAttribute="leading" constant="25" id="IDK-du-nIg"/>
+                            <constraint firstItem="AIK-hy-4ST" firstAttribute="trailing" secondItem="oXd-vV-gX3" secondAttribute="trailing" constant="25" id="LA5-Z9-shJ"/>
                             <constraint firstItem="6lm-Bm-aiF" firstAttribute="top" secondItem="AIK-hy-4ST" secondAttribute="top" id="NcE-Cy-5WJ"/>
+                            <constraint firstItem="oXd-vV-gX3" firstAttribute="top" secondItem="2SP-3a-9JK" secondAttribute="bottom" constant="25" id="VTV-hK-YV5"/>
                             <constraint firstAttribute="bottom" secondItem="6lm-Bm-aiF" secondAttribute="bottom" id="Zja-uf-CU9"/>
                             <constraint firstItem="2SP-3a-9JK" firstAttribute="centerX" secondItem="AIK-hy-4ST" secondAttribute="centerX" id="bC4-Wh-MkI"/>
-                            <constraint firstItem="2SP-3a-9JK" firstAttribute="leading" secondItem="AIK-hy-4ST" secondAttribute="leading" constant="150" id="in2-1r-jNK"/>
+                            <constraint firstItem="2SP-3a-9JK" firstAttribute="leading" secondItem="AIK-hy-4ST" secondAttribute="leading" constant="65" id="in2-1r-jNK"/>
                             <constraint firstItem="2SP-3a-9JK" firstAttribute="centerY" secondItem="AIK-hy-4ST" secondAttribute="centerY" id="nz5-aY-hDt"/>
                             <constraint firstItem="AIK-hy-4ST" firstAttribute="trailing" secondItem="6lm-Bm-aiF" secondAttribute="trailing" id="vw4-QG-OWZ"/>
                         </constraints>
@@ -151,12 +158,13 @@
                     <connections>
                         <outlet property="activityIndicator" destination="YTs-n9-ATP" id="KNW-K4-lYx"/>
                         <outlet property="imageView" destination="6lm-Bm-aiF" id="Pte-3b-cOq"/>
-                        <outlet property="loadingLabel" destination="9aq-ah-MQn" id="Nrs-Wn-p4g"/>
+                        <outlet property="loadingLabel" destination="0kY-P0-Vpx" id="kQV-JP-DZZ"/>
+                        <outlet property="progressView" destination="oXd-vV-gX3" id="d3x-59-lzO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cC-JG-R7x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="223" y="-204"/>
+            <point key="canvasLocation" x="221.53846153846152" y="-204.02843601895734"/>
         </scene>
         <!--Details-->
         <scene sceneID="tKu-ha-0ZB">
@@ -467,6 +475,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

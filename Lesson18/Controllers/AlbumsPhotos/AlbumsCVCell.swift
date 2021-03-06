@@ -3,7 +3,7 @@ import Alamofire
 import AlamofireImage
 import SwiftyJSON
 
-class AlbomsCVCell: UICollectionViewCell
+class AlbumsCVCell: UICollectionViewCell
 {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var photoImage: UIImageView!

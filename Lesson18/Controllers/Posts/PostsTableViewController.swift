@@ -31,7 +31,7 @@ class PostsTableViewController: UITableViewController
         AF.request(url).responseJSON { [weak self] response in
             switch response.result {
                 case .success(let data):
-                    //Когда ? после self а когда не надо
+                    //Когда ? после selfб, а когда не надо
                     self?.posts = JSON(data).arrayValue
                     self?.tableView.reloadData()
                 case.failure(let error):

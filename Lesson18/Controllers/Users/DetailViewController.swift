@@ -52,7 +52,7 @@ class DetailViewController: UIViewController
            let postsVC = segue.destination as? PostsTableViewController {
             postsVC.user = user
         } else if segue.identifier == "goToAlboms",
-                  let albomsVC = segue.destination as? AlbomsTVC {
+                  let albomsVC = segue.destination as? AlbumsTVC {
             albomsVC.user = user
         }
     }

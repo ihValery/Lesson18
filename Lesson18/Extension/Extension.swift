@@ -1,4 +1,3 @@
-import Foundation
 import UIKit
 
 public func zebraTable(with cell: UITableViewCell, indexPath: IndexPath)
