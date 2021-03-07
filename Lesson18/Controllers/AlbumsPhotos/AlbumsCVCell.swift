@@ -11,10 +11,16 @@ class AlbumsCVCell: UICollectionViewCell
     
     func getPreview(with thumbnailUrl: String)
     {
-        AF.request(thumbnailUrl).responseImage { [weak self] response in
-            if case .success(let image) = response.result {
-                isHiddenElements(self!.loadingLabel, self!.activityIndicator, bool: true)
-                self?.photoImage.image = image
+        if let image = CacheManager.shared.imageCache.image(withIdentifier: thumbnailUrl) {
+            photoImage.image = image
+            isHiddenElements(loadingLabel, activityIndicator, bool: true)
+        } else {
+            AF.request(thumbnailUrl).responseImage { [weak self] response in
+                if case .success(let image) = response.result {
+                    isHiddenElements(self!.loadingLabel, self!.activityIndicator, bool: true)
+                    self?.photoImage.image = image
+                    CacheManager.shared.imageCache.add(image, withIdentifier: thumbnailUrl)
+                }
             }
         }
     }

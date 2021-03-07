@@ -12,6 +12,7 @@ class ImageViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        isHiddenElements(loadingLabel, activityIndicator, bool: false)
         downloadImage()
     }
     
