@@ -17,7 +17,7 @@ class AlbumsTVC: UITableViewController
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.identifier == "goToAlboms" {
+        if segue.identifier == "goToCollectionAlbums" {
             let photosCollectionVC = segue.destination as? AlbumsCollectionVC
             let album = sender as? JSON
             photosCollectionVC?.album = album
@@ -30,11 +30,11 @@ class AlbumsTVC: UITableViewController
         guard let userId = user["id"].int else { return }
         guard let url = URL(string: "\(URLConstants.urlAlbums)\(userId)") else { return }
         
-        AF.request(url).responseJSON { response in
+        AF.request(url).responseJSON { [weak self] response in
             switch response.result {
                 case .success(let data):
-                    self.albums = JSON(data).arrayValue
-                    self.tableView.reloadData()
+                    self?.albums = JSON(data).arrayValue
+                    self?.tableView.reloadData()
                 case .failure(let error):
                     print(error)
             }
@@ -50,7 +50,7 @@ class AlbumsTVC: UITableViewController
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cellAlboms")
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cellAlbums")
         cell.textLabel?.text = albums[indexPath.row]["title"].stringValue.firstCapitalized
         cell.textLabel?.numberOfLines = 0
         let detailText = (albums[indexPath.row]["id"].int ?? 0).description
@@ -64,6 +64,6 @@ class AlbumsTVC: UITableViewController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let album = albums[indexPath.row]
-        performSegue(withIdentifier: "goToAlboms", sender: album)
+        performSegue(withIdentifier: "goToCollectionAlbums", sender: album)
     }
 }

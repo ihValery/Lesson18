@@ -23,16 +23,16 @@ class ImageViewController: UIViewController
         guard let url = URL(string: imageUrl) else { return }
 
         AF.request(url)
-            .downloadProgress { progress in
+            .downloadProgress { [weak self] progress in
                 let progress = Float(progress.fractionCompleted)
-                self.progressView.setProgress(progress, animated: true)
+                self?.progressView.setProgress(progress, animated: true)
             }
-            .responseImage { response in
+            .responseImage { [weak self] response in
                 switch response.result {
                     case .success(let image):
-                        isHiddenElements(self.loadingLabel, self.activityIndicator, bool: true)
-                        self.progressView.isHidden = true
-                        self.imageView.image = image
+                        isHiddenElements(self!.loadingLabel, self!.activityIndicator, bool: true)
+                        self?.progressView.isHidden = true
+                        self?.imageView.image = image
                     case .failure(let error):
                         print(error)
                 }

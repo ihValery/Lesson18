@@ -11,7 +11,7 @@
         <!--AlbumsTVC-->
         <scene sceneID="ksb-Kj-TC4">
             <objects>
-                <tableViewController storyboardIdentifier="AlbomsSB" id="P8a-Ea-5W5" customClass="AlbumsTVC" customModule="Lesson18" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AlbumsSB" id="P8a-Ea-5W5" customClass="AlbumsTVC" customModule="Lesson18" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="515-TY-uWA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="UZN-wy-NFR" kind="show" identifier="goToAlboms" id="kXF-eO-hi6"/>
+                        <segue destination="UZN-wy-NFR" kind="show" identifier="goToCollectionAlbums" id="kXF-eO-hi6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRM-h7-o5h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -44,7 +44,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellAlboms" id="mDg-13-zfi" customClass="AlbumsCVCell" customModule="Lesson18" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellAlbums" id="mDg-13-zfi" customClass="AlbumsCVCell" customModule="Lesson18" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
