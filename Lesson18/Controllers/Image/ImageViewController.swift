@@ -4,8 +4,6 @@ import AlamofireImage
 
 class ImageViewController: UIViewController
 {
-    private let imageUrl = URLConstants.urlBigImage
-    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var loadingLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
@@ -15,14 +13,17 @@ class ImageViewController: UIViewController
     {
         super.viewDidLoad()
         downloadImage()
-        isHiddenElements(loadingLabel, activityIndicator, bool: false)
     }
     
     private func downloadImage()
     {
-        guard let url = URL(string: imageUrl) else { return }
-
-        AF.request(url)
+        guard let url = URL(string: URLConstants.urlBigImage) else { return }
+        
+        if let image = CacheManager.shared.imageCache.image(withIdentifier: URLConstants.urlBigImage) {
+            imageView.image = image
+            isHiddenElements(loadingLabel, activityIndicator, bool: true)
+        } else {
+            AF.request(url)
             .downloadProgress { [weak self] progress in
                 let progress = Float(progress.fractionCompleted)
                 self?.progressView.setProgress(progress, animated: true)
@@ -33,10 +34,13 @@ class ImageViewController: UIViewController
                         isHiddenElements(self!.loadingLabel, self!.activityIndicator, bool: true)
                         self?.progressView.isHidden = true
                         self?.imageView.image = image
+                        guard let bigImage = self?.imageView.image else { return }
+                        CacheManager.shared.imageCache.add(bigImage, withIdentifier: URLConstants.urlBigImage)
                     case .failure(let error):
                         print(error)
                 }
             }
+        }
     }
 }
 
