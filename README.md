@@ -8,4 +8,4 @@
   - Добавление постов
   - Кеширование изображения
   
-<a href="https://ibb.co/d5WSxks"><img src="https://i.ibb.co/yQfD7gm/Alamofire.jpg" alt="Alamofire" border="0"></a>
+<a href="https://ibb.co/Xx6PcVT"><img src="https://i.ibb.co/KxBgTmH/Alamofire.jpg" alt="Alamofire" border="0"></a>
