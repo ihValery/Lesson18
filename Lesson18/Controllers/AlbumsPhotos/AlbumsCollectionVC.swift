@@ -1,5 +1,6 @@
 import UIKit
 import Alamofire
+import AlamofireImage
 import SwiftyJSON
 
 class AlbumsCollectionVC: UICollectionViewController
@@ -10,7 +11,7 @@ class AlbumsCollectionVC: UICollectionViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        getData()
+        getImage()
         setSizeCellCollection(collectionView: collectionView)
         title = "Album № \(album["id"])"
     }
@@ -22,10 +23,10 @@ class AlbumsCollectionVC: UICollectionViewController
         guard let photoVC = segue.destination as? PhotoVC else { return }
         let photo = sender as! JSON
         photoVC.text = photo["title"].string ?? "no title"
-        photoVC.configurePhotoAbout(with: photo["url"].stringValue)
+        photoVC.photoUrl = photo["url"].string ?? "error URL"
     }
     
-    func getData()
+    func getImage()
     {
         guard let albumId = album["id"].int else { return }
         guard let url = URL(string: "\(URLConstants.urlPhotos)\(albumId)") else { return }
@@ -52,10 +53,8 @@ class AlbumsCollectionVC: UICollectionViewController
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellAlbums", for: indexPath) as! AlbumsCVCell
         guard let thumbnailUrl = photos[indexPath.item]["thumbnailUrl"].string else { return cell }
-        cell.activityIndicator.startAnimating()
         cell.getPreview(with: thumbnailUrl)
         designCell(with: cell)
-        print("Loading image \(indexPath.row + 1)")         //принт
         return cell
     }
     

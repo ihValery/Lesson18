@@ -11,7 +11,6 @@ class UsersVC: UITableViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if let desination = segue.destination as? DetailViewController,
-           //Достучался до ясейки и прокинули юзера
             let user = sender as? JSON {
             desination.user = user
         }
