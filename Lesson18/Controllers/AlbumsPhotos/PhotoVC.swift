@@ -1,6 +1,6 @@
 import UIKit
 import Alamofire
-//import AlamofireImage
+import AlamofireImage
 
 class PhotoVC: UIViewController
 {

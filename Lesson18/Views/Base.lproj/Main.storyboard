@@ -8,6 +8,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barstagle-Regular.ttf">
+            <string>Barstagle-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="UqJ-9Z-yVV">
@@ -17,6 +22,12 @@
                         <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Barstagle-Regular" family="Barstagle" pointSize="40"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="Vdh-ny-3rE" kind="relationship" relationship="rootViewController" id="RrG-eG-yhw"/>
@@ -40,6 +51,10 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <imageView key="backgroundView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iu-2" id="VEl-jt-Lw0">
+                            <rect key="frame" x="0.0" y="-88" width="390" height="844"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserActionCell" id="Jvr-fs-umn" customClass="UserActionCell" customModule="Lesson18" customModuleProvider="target">
                                 <rect key="frame" x="25.666666666666668" y="0.0" width="339" height="143"/>
@@ -49,8 +64,8 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mv9-eO-4KH">
-                                            <rect key="frame" x="136.66666666666666" y="54.666666666666657" width="66" height="34"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                            <rect key="frame" x="126.66666666666666" y="51" width="85.666666666666657" height="41"/>
+                                            <fontDescription key="fontDescription" name="Barstagle-Regular" family="Barstagle" pointSize="35"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -123,8 +138,9 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2SP-3a-9JK">
                                 <rect key="frame" x="65" y="422" width="260" height="54"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YTs-n9-ATP">
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YTs-n9-ATP">
                                         <rect key="frame" x="0.0" y="0.0" width="260" height="20"/>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kY-P0-Vpx">
                                         <rect key="frame" x="0.0" y="30" width="260" height="24"/>
@@ -365,7 +381,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hh2-qm-cSr" kind="show" identifier="goToAlboms" id="pS2-Zs-aFc"/>
+                                    <segue destination="hh2-qm-cSr" kind="show" identifier="goToAlbums" id="pS2-Zs-aFc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKT-Ws-Zcs">
@@ -417,10 +433,10 @@
             </objects>
             <point key="canvasLocation" x="943" y="458"/>
         </scene>
-        <!--Alboms-->
+        <!--Albums-->
         <scene sceneID="VHL-MT-uco">
             <objects>
-                <viewControllerPlaceholder storyboardName="Alboms" id="hh2-qm-cSr" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Albums" id="hh2-qm-cSr" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="9Oa-K8-zpp"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6d-lD-cei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -548,6 +564,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="iu-2" width="320" height="320"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

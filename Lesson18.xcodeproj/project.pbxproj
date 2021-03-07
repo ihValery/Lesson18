@@ -21,12 +21,14 @@
 		2DB59A0425E6601600654E33 /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB59A0325E6601600654E33 /* UserActionCell.swift */; };
 		802C7A0325F2206400704691 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C7A0225F2206400704691 /* Extension.swift */; };
 		807CA96825F4316D00481889 /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807CA96725F4316D00481889 /* AddPostVC.swift */; };
-		8090393225EF9BEC00ABFE7B /* Alboms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8090393125EF9BEC00ABFE7B /* Alboms.storyboard */; };
+		807CA97025F50E9E00481889 /* Barstagle-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 807CA96F25F50E8B00481889 /* Barstagle-Regular.ttf */; };
+		8090393225EF9BEC00ABFE7B /* Albums.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8090393125EF9BEC00ABFE7B /* Albums.storyboard */; };
 		8090393525EF9C8200ABFE7B /* AlbumsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090393425EF9C8200ABFE7B /* AlbumsTVC.swift */; };
 		8090394725EFAABE00ABFE7B /* AlbumsCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090394625EFAABE00ABFE7B /* AlbumsCollectionVC.swift */; };
 		8090394A25EFBB4700ABFE7B /* AlbumsCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090394925EFBB4700ABFE7B /* AlbumsCVCell.swift */; };
 		8090395725EFD3D900ABFE7B /* PhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090395625EFD3D900ABFE7B /* PhotoVC.swift */; };
 		80A7FFC125F3A0AD00E70A96 /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7FFC025F3A0AD00E70A96 /* URLConstants.swift */; };
+		80D7B24F25F52BE50002540F /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D7B24E25F52BE50002540F /* CacheManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,12 +49,14 @@
 		2DB59A0325E6601600654E33 /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 		802C7A0225F2206400704691 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		807CA96725F4316D00481889 /* AddPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
-		8090393125EF9BEC00ABFE7B /* Alboms.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alboms.storyboard; sourceTree = "<group>"; };
+		807CA96F25F50E8B00481889 /* Barstagle-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barstagle-Regular.ttf"; sourceTree = "<group>"; };
+		8090393125EF9BEC00ABFE7B /* Albums.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Albums.storyboard; sourceTree = "<group>"; };
 		8090393425EF9C8200ABFE7B /* AlbumsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTVC.swift; sourceTree = "<group>"; };
 		8090394625EFAABE00ABFE7B /* AlbumsCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCollectionVC.swift; sourceTree = "<group>"; };
 		8090394925EFBB4700ABFE7B /* AlbumsCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCVCell.swift; sourceTree = "<group>"; };
 		8090395625EFD3D900ABFE7B /* PhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoVC.swift; sourceTree = "<group>"; };
 		80A7FFC025F3A0AD00E70A96 /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
+		80D7B24E25F52BE50002540F /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		DD842B76CB1319F4769F5BAD /* Pods-NetHM17.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetHM17.debug.xcconfig"; path = "Target Support Files/Pods-NetHM17/Pods-NetHM17.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				2DB599D625E652FE00654E33 /* Main.storyboard */,
-				8090393125EF9BEC00ABFE7B /* Alboms.storyboard */,
+				8090393125EF9BEC00ABFE7B /* Albums.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -147,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				2DB599DB25E652FE00654E33 /* LaunchScreen.storyboard */,
+				807CA96F25F50E8B00481889 /* Barstagle-Regular.ttf */,
 				2DB599DE25E652FE00654E33 /* Info.plist */,
 				2DB599D925E652FE00654E33 /* Assets.xcassets */,
 				2DB599D025E652FE00654E33 /* AppDelegate.swift */,
@@ -202,6 +207,7 @@
 			children = (
 				802C7A0225F2206400704691 /* Extension.swift */,
 				80A7FFC025F3A0AD00E70A96 /* URLConstants.swift */,
+				80D7B24E25F52BE50002540F /* CacheManager.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -276,9 +282,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				807CA97025F50E9E00481889 /* Barstagle-Regular.ttf in Resources */,
 				2DB599DD25E652FE00654E33 /* LaunchScreen.storyboard in Resources */,
 				2DB599DA25E652FE00654E33 /* Assets.xcassets in Resources */,
-				8090393225EF9BEC00ABFE7B /* Alboms.storyboard in Resources */,
+				8090393225EF9BEC00ABFE7B /* Albums.storyboard in Resources */,
 				2DB599D825E652FE00654E33 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +344,7 @@
 				807CA96825F4316D00481889 /* AddPostVC.swift in Sources */,
 				8090394725EFAABE00ABFE7B /* AlbumsCollectionVC.swift in Sources */,
 				2DB599F025E65E7600654E33 /* UsersVC.swift in Sources */,
+				80D7B24F25F52BE50002540F /* CacheManager.swift in Sources */,
 				2DB599D125E652FE00654E33 /* AppDelegate.swift in Sources */,
 				2DB599EA25E6538000654E33 /* ImageViewController.swift in Sources */,
 				802C7A0325F2206400704691 /* Extension.swift in Sources */,
