@@ -23,7 +23,9 @@ class PostsTableViewController: UITableViewController
             commentVC.getComments(with: "\(URLConstants.urlComments)/\(postId)/comments")
         }
         if segue.identifier == "goToAddPost" {
-            
+            guard let addPostVC = segue.destination as? AddPostVC else { return }
+            guard let user = user else { return }
+            addPostVC.user = user
         }
     }
     

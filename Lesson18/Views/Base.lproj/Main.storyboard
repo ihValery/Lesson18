@@ -487,6 +487,7 @@
                             <constraint firstItem="nfX-wg-hu1" firstAttribute="trailing" secondItem="05b-j9-1qW" secondAttribute="trailing" constant="30" id="yew-LP-kgm"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="LN1-gt-DCg"/>
                     <connections>
                         <outlet property="addPostBttn" destination="Zdt-Nh-9gI" id="2Fp-bk-Jjn"/>
                         <outlet property="bodyPost" destination="aNO-Ue-vxm" id="6g6-kG-BiK"/>
