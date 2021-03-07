@@ -48,7 +48,7 @@ class DetailViewController: UIViewController
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.identifier == "showPosts",
+        if segue.identifier == "goToPosts",
            let postsVC = segue.destination as? PostsTableViewController {
             postsVC.user = user
         } else if segue.identifier == "goToAlboms",

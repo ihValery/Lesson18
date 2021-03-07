@@ -44,6 +44,15 @@ public func designImage(image: UIImageView)
     image.layer.masksToBounds = false
 }
 
+public func designView(view: UIView)
+{
+    view.layer.shadowColor = UIColor.black.cgColor
+    view.layer.shadowOffset = CGSize(width: 0, height: 2)
+    view.layer.shadowRadius = 4
+    view.layer.shadowOpacity = 0.5
+    view.layer.masksToBounds = false
+}
+
 public func designButton(button: UIButton)
 {
     button.layer.cornerRadius = 13
@@ -85,4 +94,27 @@ public func isHiddenElements(_ label: UILabel, _ indicator: UIActivityIndicatorV
     indicator.isHidden = bool
     label.isHidden = bool
     bool ? indicator.stopAnimating() : indicator.startAnimating()
+}
+
+public func buttonOnOff(with button: UIButton, bool: Bool)
+{
+        button.isEnabled = bool
+        button.alpha = bool ? 1 : 0.3
+}
+
+extension AddPostVC: UITextViewDelegate
+{
+    func textViewDidBeginEditing(_ textView: UITextView)
+    {
+        if bodyPost.text == "The body of the post must contain at least 20 characters" {
+            bodyPost.text = nil
+            bodyPost.textColor = .black
+        }
+    }
+
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+    {
+        buttonOnOff(with: addPostBttn, bool: textView.text.count > 20 && titlePost.text != "")
+        return true
+    }
 }

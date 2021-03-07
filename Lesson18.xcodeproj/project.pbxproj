@@ -20,6 +20,7 @@
 		2DB599F025E65E7600654E33 /* UsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB599EF25E65E7600654E33 /* UsersVC.swift */; };
 		2DB59A0425E6601600654E33 /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB59A0325E6601600654E33 /* UserActionCell.swift */; };
 		802C7A0325F2206400704691 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C7A0225F2206400704691 /* Extension.swift */; };
+		807CA96825F4316D00481889 /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807CA96725F4316D00481889 /* AddPostVC.swift */; };
 		8090393225EF9BEC00ABFE7B /* Alboms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8090393125EF9BEC00ABFE7B /* Alboms.storyboard */; };
 		8090393525EF9C8200ABFE7B /* AlbumsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090393425EF9C8200ABFE7B /* AlbumsTVC.swift */; };
 		8090394725EFAABE00ABFE7B /* AlbumsCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090394625EFAABE00ABFE7B /* AlbumsCollectionVC.swift */; };
@@ -45,6 +46,7 @@
 		2DB599EF25E65E7600654E33 /* UsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersVC.swift; sourceTree = "<group>"; };
 		2DB59A0325E6601600654E33 /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 		802C7A0225F2206400704691 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		807CA96725F4316D00481889 /* AddPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
 		8090393125EF9BEC00ABFE7B /* Alboms.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alboms.storyboard; sourceTree = "<group>"; };
 		8090393425EF9C8200ABFE7B /* AlbumsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTVC.swift; sourceTree = "<group>"; };
 		8090394625EFAABE00ABFE7B /* AlbumsCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCollectionVC.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				2D6ADBCA25ED0540009EE2C2 /* PostsTableViewController.swift */,
+				807CA96725F4316D00481889 /* AddPostVC.swift */,
 			);
 			path = Posts;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			files = (
 				2D6ADBC725ED00B0009EE2C2 /* DetailViewController.swift in Sources */,
 				2D6ADBD625ED05A6009EE2C2 /* CommentsTVC.swift in Sources */,
+				807CA96825F4316D00481889 /* AddPostVC.swift in Sources */,
 				8090394725EFAABE00ABFE7B /* AlbumsCollectionVC.swift in Sources */,
 				2DB599F025E65E7600654E33 /* UsersVC.swift in Sources */,
 				2DB599D125E652FE00654E33 /* AppDelegate.swift in Sources */,

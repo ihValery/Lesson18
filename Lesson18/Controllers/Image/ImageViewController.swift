@@ -21,7 +21,7 @@ class ImageViewController: UIViewController
     private func downloadImage()
     {
         guard let url = URL(string: imageUrl) else { return }
-        
+
         AF.request(url)
             .downloadProgress { progress in
                 let progress = Float(progress.fractionCompleted)

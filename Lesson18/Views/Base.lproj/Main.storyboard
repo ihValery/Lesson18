@@ -354,7 +354,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="bDu-ks-22V" kind="show" identifier="showPosts" id="rSH-yj-vhJ"/>
+                                    <segue destination="RL5-W5-h2x" kind="show" identifier="goToPosts" id="Cg5-Ty-nfc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syh-tp-8Nt">
@@ -417,47 +417,6 @@
             </objects>
             <point key="canvasLocation" x="943" y="458"/>
         </scene>
-        <!--Comments-->
-        <scene sceneID="fXP-El-s3l">
-            <objects>
-                <tableViewController id="fk6-QD-W7z" customClass="CommentsTVC" customModule="Lesson18" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cmW-Hg-dOW">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <connections>
-                            <outlet property="dataSource" destination="fk6-QD-W7z" id="fod-XY-i9t"/>
-                            <outlet property="delegate" destination="fk6-QD-W7z" id="Ads-0r-o3u"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Comments" id="gMB-uM-LNh"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qBS-Vl-UeD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2408" y="458"/>
-        </scene>
-        <!--Posts-->
-        <scene sceneID="kBf-3c-btK">
-            <objects>
-                <tableViewController id="bDu-ks-22V" customClass="PostsTableViewController" customModule="Lesson18" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="E0e-cy-9fy">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <connections>
-                            <outlet property="dataSource" destination="bDu-ks-22V" id="RzU-3h-ulb"/>
-                            <outlet property="delegate" destination="bDu-ks-22V" id="Wm2-HZ-ESX"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Posts" id="rkF-Zo-dcR"/>
-                    <connections>
-                        <segue destination="fk6-QD-W7z" kind="show" identifier="goToComment" id="2XD-sL-Rxu"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jRv-FS-yn0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1657" y="458"/>
-        </scene>
         <!--Alboms-->
         <scene sceneID="VHL-MT-uco">
             <objects>
@@ -466,7 +425,126 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6d-lD-cei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1657" y="885"/>
+            <point key="canvasLocation" x="1558" y="215"/>
+        </scene>
+        <!--Add PostVC-->
+        <scene sceneID="aNa-aX-AWz">
+            <objects>
+                <viewController id="G3V-oc-FRS" customClass="AddPostVC" customModule="Lesson18" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ttj-Gw-jso">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title post" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vvj-cg-vuP">
+                                <rect key="frame" x="30" y="25" width="330" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="titlePostAction:" destination="G3V-oc-FRS" eventType="editingChanged" id="Xgf-M8-UlG"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="The body of the post must contain at least 20 characters" translatesAutoresizingMaskIntoConstraints="NO" id="aNO-Ue-vxm">
+                                <rect key="frame" x="25" y="68" width="340" height="179"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="systemGray3Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zdt-Nh-9gI">
+                                <rect key="frame" x="25" y="272" width="340" height="38"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="Add post">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPostAction:" destination="G3V-oc-FRS" eventType="touchUpInside" id="Y2w-O8-RV7"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05b-j9-1qW">
+                                <rect key="frame" x="30" y="57" width="330" height="1"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="CMf-Wt-CJ0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nfX-wg-hu1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Zdt-Nh-9gI" firstAttribute="leading" secondItem="nfX-wg-hu1" secondAttribute="leading" constant="25" id="97c-Av-eHM"/>
+                            <constraint firstItem="nfX-wg-hu1" firstAttribute="trailing" secondItem="vvj-cg-vuP" secondAttribute="trailing" constant="30" id="Az5-NE-1gU"/>
+                            <constraint firstItem="nfX-wg-hu1" firstAttribute="trailing" secondItem="Zdt-Nh-9gI" secondAttribute="trailing" constant="25" id="BEW-93-ZAe"/>
+                            <constraint firstItem="aNO-Ue-vxm" firstAttribute="top" secondItem="05b-j9-1qW" secondAttribute="bottom" constant="10" id="Cem-kS-nZV"/>
+                            <constraint firstItem="05b-j9-1qW" firstAttribute="top" secondItem="vvj-cg-vuP" secondAttribute="bottom" constant="10" id="DuM-v4-YqU"/>
+                            <constraint firstItem="nfX-wg-hu1" firstAttribute="trailing" secondItem="aNO-Ue-vxm" secondAttribute="trailing" constant="25" id="FQ1-QX-Zqi"/>
+                            <constraint firstItem="05b-j9-1qW" firstAttribute="leading" secondItem="nfX-wg-hu1" secondAttribute="leading" constant="30" id="Odf-oJ-2zS"/>
+                            <constraint firstItem="Zdt-Nh-9gI" firstAttribute="top" secondItem="aNO-Ue-vxm" secondAttribute="bottom" constant="25" id="Sok-pM-oP9"/>
+                            <constraint firstItem="vvj-cg-vuP" firstAttribute="leading" secondItem="nfX-wg-hu1" secondAttribute="leading" constant="30" id="cyC-N3-x8C"/>
+                            <constraint firstItem="nfX-wg-hu1" firstAttribute="bottom" secondItem="Zdt-Nh-9gI" secondAttribute="bottom" constant="446" id="lPw-0U-8Ki"/>
+                            <constraint firstItem="vvj-cg-vuP" firstAttribute="top" secondItem="nfX-wg-hu1" secondAttribute="top" constant="25" id="xCi-2z-XY4"/>
+                            <constraint firstItem="aNO-Ue-vxm" firstAttribute="leading" secondItem="nfX-wg-hu1" secondAttribute="leading" constant="25" id="xlQ-HG-hIT"/>
+                            <constraint firstItem="nfX-wg-hu1" firstAttribute="trailing" secondItem="05b-j9-1qW" secondAttribute="trailing" constant="30" id="yew-LP-kgm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="LN1-gt-DCg"/>
+                    <connections>
+                        <outlet property="addPostBttn" destination="Zdt-Nh-9gI" id="2Fp-bk-Jjn"/>
+                        <outlet property="bodyPost" destination="aNO-Ue-vxm" id="6g6-kG-BiK"/>
+                        <outlet property="lineDesign" destination="05b-j9-1qW" id="awD-AX-jVk"/>
+                        <outlet property="titlePost" destination="vvj-cg-vuP" id="a23-N7-tIZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dIu-rE-mJW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2737" y="353"/>
+        </scene>
+        <!--Comments-->
+        <scene sceneID="uPI-Tt-3DI">
+            <objects>
+                <tableViewController id="evr-ad-rsv" customClass="CommentsTVC" customModule="Lesson18" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wwe-C0-rjd">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="evr-ad-rsv" id="cwP-jg-ors"/>
+                            <outlet property="delegate" destination="evr-ad-rsv" id="T4s-Q0-TvT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Comments" id="KtC-bZ-For"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IpZ-wq-IVq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2737" y="1067"/>
+        </scene>
+        <!--Posts Table View Controller-->
+        <scene sceneID="1K5-jM-k7k">
+            <objects>
+                <tableViewController id="RL5-W5-h2x" customClass="PostsTableViewController" customModule="Lesson18" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bXC-Lb-iAR">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="RL5-W5-h2x" id="Fpa-o1-Wjc"/>
+                            <outlet property="delegate" destination="RL5-W5-h2x" id="q2f-Kn-uL6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="B5a-Qp-6yS">
+                        <barButtonItem key="rightBarButtonItem" title="Add post" id="1rY-An-QJf">
+                            <connections>
+                                <segue destination="G3V-oc-FRS" kind="presentation" identifier="goToAddPost" id="n6y-UN-5ze"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="evr-ad-rsv" kind="show" identifier="goToComment" id="HTQ-ek-zfX"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eI2-cJ-jbd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1798" y="705"/>
         </scene>
     </scenes>
     <resources>
@@ -475,6 +553,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

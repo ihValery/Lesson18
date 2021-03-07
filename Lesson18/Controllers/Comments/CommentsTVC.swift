@@ -15,7 +15,6 @@ class CommentsTVC: UITableViewController
                 case .success(let data):
                     self?.comments = JSON(data).arrayValue
                     self?.tableView.reloadData()
-                    print(data)
                 case .failure(let error):
                     print(error)
             }
