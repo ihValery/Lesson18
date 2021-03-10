@@ -36,16 +36,14 @@ class AddPostVC: UIViewController
                                 "body": body]
         
         AF.request(URLConstants.urlPosts, method: .post, parameters: post, encoding: JSONEncoding.default)
-            .responseJSON { [weak self] response in
+            .responseJSON { /*[weak self]*/ response in
                 switch response.result {
                     case .success(let data):
                         print(JSON(data))
-                        self?.dismiss(animated: true) {
-                            self?.reloadInputViews()
-                        }
                     case .failure(let error):
                         print(error)
                 }
         }
+        navigationController?.popViewController(animated: true)
     }
 }

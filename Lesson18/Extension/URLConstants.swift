@@ -2,7 +2,8 @@ import Foundation
 
 struct URLConstants
 {
-    private static let urlDomain = "https://jsonplaceholder.typicode.com"
+    private static let urlDomain = "http://localhost:3000"
+        //"https://jsonplaceholder.typicode.com"
     
     static let urlUsers = "\(URLConstants.urlDomain)/users"
     static let urlAlbums = "\(URLConstants.urlDomain)/albums?userId="
