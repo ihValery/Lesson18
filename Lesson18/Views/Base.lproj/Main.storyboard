@@ -64,7 +64,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mv9-eO-4KH">
-                                            <rect key="frame" x="126.66666666666666" y="51" width="85.666666666666657" height="41"/>
+                                            <rect key="frame" x="139.33333333333334" y="54" width="60.666666666666657" height="35"/>
                                             <fontDescription key="fontDescription" name="Barstagle-Regular" family="Barstagle" pointSize="35"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -475,6 +475,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addPostAction:" destination="G3V-oc-FRS" eventType="touchUpInside" id="Y2w-O8-RV7"/>
+                                    <segue destination="sap-5J-6l2" kind="unwind" unwindAction="unwindToAllPosts:" id="Ore-9k-HvA"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05b-j9-1qW">
@@ -512,6 +513,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIu-rE-mJW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="sap-5J-6l2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2737" y="353"/>
         </scene>
@@ -537,7 +539,7 @@
         <!--Posts Table View Controller-->
         <scene sceneID="1K5-jM-k7k">
             <objects>
-                <tableViewController id="RL5-W5-h2x" customClass="PostsTableViewController" customModule="Lesson18" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PostsTableSB" id="RL5-W5-h2x" customClass="PostsTableViewController" customModule="Lesson18" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bXC-Lb-iAR">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

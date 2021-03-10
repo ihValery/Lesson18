@@ -7,12 +7,14 @@ class PostsTableViewController: UITableViewController
     var user: JSON!
     var posts: [JSON] = []
     
-    override func viewWillAppear(_ animated: Bool)
+    
+    override func viewDidLoad()
     {
+        super.viewDidLoad()
         getPosts()
         title = user["name"].string
     }
-    
+        
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -43,6 +45,12 @@ class PostsTableViewController: UITableViewController
                     print(error)
             }
         }
+    }
+    
+    @IBAction func unwindToAllPosts(_ unwindSegue: UIStoryboardSegue)
+    {
+        //Рабочий способо добавлять новый пост через модалку
+        viewDidLoad()
     }
 
     // MARK: - TableSiewSataSource
