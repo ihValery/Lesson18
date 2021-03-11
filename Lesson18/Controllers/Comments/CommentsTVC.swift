@@ -20,7 +20,7 @@ class CommentsTVC: UITableViewController
             }
         }
     }
-
+    
     // MARK: - TableSiewSataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -37,5 +37,21 @@ class CommentsTVC: UITableViewController
         cell.detailTextLabel?.numberOfLines = 0
         zebraTable(with: cell, indexPath: indexPath)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == .delete {
+            guard let id = comments[indexPath.row]["id"].int else { return }
+            AF.request("\(URLConstants.urlDelComment)\(id)", method: .delete)
+                .validate()
+                .responseJSON { response in
+                    if case .failure(let error) = response.result {
+                        print(error)
+                    }
+                }
+            comments.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }

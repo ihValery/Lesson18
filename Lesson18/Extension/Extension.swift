@@ -114,7 +114,15 @@ extension AddPostVC: UITextViewDelegate
 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
     {
-        buttonOnOff(with: addPostBttn, bool: textView.text.count > 2 && titlePost.text != "")
+        buttonOnOff(with: addPostBttn, bool: textView.text.count > 20 && titlePost.text != "")
         return true
+    }
+}
+
+extension UpdateCommentVC: UITextViewDelegate
+{
+    func textViewDidBeginEditing(_ textView: UITextView)
+    {
+//        bodyPost.text =
     }
 }

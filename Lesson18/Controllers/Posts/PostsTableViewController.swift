@@ -22,7 +22,8 @@ class PostsTableViewController: UITableViewController
         if segue.identifier == "goToComment" {
             guard let commentVC = segue.destination as? CommentsTVC else { return }
             guard let postId = sender as? Int else { return }
-            commentVC.getComments(with: "\(URLConstants.urlComments)/\(postId)/comments")
+            commentVC.getComments(with: "\(URLConstants.urlCom)\(postId)")
+            
         }
         if segue.identifier == "goToAddPost" {
             guard let addPostVC = segue.destination as? AddPostVC else { return }
@@ -41,7 +42,7 @@ class PostsTableViewController: UITableViewController
                 case .success(let data):
                     self?.posts = JSON(data).arrayValue
                     self?.tableView.reloadData()
-                case.failure(let error):
+                case .failure(let error):
                     print(error)
             }
         }
@@ -49,11 +50,11 @@ class PostsTableViewController: UITableViewController
     
     @IBAction func unwindToAllPosts(_ unwindSegue: UIStoryboardSegue)
     {
-        //Рабочий способо добавлять новый пост через модалку
+        //Рабочий способо добавлять новый пост через модалку (то есть сразу видеть результат)
         viewDidLoad()
     }
 
-    // MARK: - TableSiewSataSource
+    // MARK: - TableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -69,6 +70,22 @@ class PostsTableViewController: UITableViewController
         cell.detailTextLabel?.numberOfLines = 0
         zebraTable(with: cell, indexPath: indexPath)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == .delete {
+            guard let id = posts[indexPath.row]["id"].int else { return }
+            AF.request("\(URLConstants.urlDomain)/posts/\(id)", method: .delete, parameters: nil, headers: nil)
+                .validate()
+                .responseJSON { response in
+                    if case .failure(let error) = response.result {
+                        print(error)
+                    }
+                }
+            posts.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
     // MARK: - TableViewDelegate

@@ -384,7 +384,7 @@
                                     <segue destination="hh2-qm-cSr" kind="show" identifier="goToAlbums" id="pS2-Zs-aFc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKT-Ws-Zcs">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKT-Ws-Zcs">
                                 <rect key="frame" x="25" y="641" width="340" height="38"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
@@ -515,7 +515,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIu-rE-mJW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="sap-5J-6l2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2737" y="353"/>
+            <point key="canvasLocation" x="2737" y="364"/>
         </scene>
         <!--Comments-->
         <scene sceneID="uPI-Tt-3DI">
@@ -530,7 +530,13 @@
                             <outlet property="delegate" destination="evr-ad-rsv" id="T4s-Q0-TvT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Comments" id="KtC-bZ-For"/>
+                    <navigationItem key="navigationItem" title="Comments" id="KtC-bZ-For">
+                        <barButtonItem key="rightBarButtonItem" title="Add comment" id="7k5-sM-1l2">
+                            <connections>
+                                <segue destination="7uw-XU-Oos" kind="presentation" id="R1l-LJ-OdJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IpZ-wq-IVq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -563,6 +569,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eI2-cJ-jbd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1798" y="705"/>
+        </scene>
+        <!--Update CommentVC-->
+        <scene sceneID="2X7-oB-myG">
+            <objects>
+                <viewController id="7uw-XU-Oos" customClass="UpdateCommentVC" customModule="Lesson18" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ig0-gB-iVf">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title post" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TYp-HU-2my">
+                                <rect key="frame" x="30" y="25" width="330" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="The body of the post must contain at least 20 characters" translatesAutoresizingMaskIntoConstraints="NO" id="rUP-0Z-0In">
+                                <rect key="frame" x="25" y="68" width="340" height="179"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="systemGray3Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4t2-XE-Lsg">
+                                <rect key="frame" x="25" y="272" width="340" height="38"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="Add comment">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huo-j4-kt3">
+                                <rect key="frame" x="30" y="57" width="330" height="1"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="jE8-Gj-rHw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rfh-sV-dyF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4t2-XE-Lsg" firstAttribute="top" secondItem="rUP-0Z-0In" secondAttribute="bottom" constant="25" id="2LE-1W-L7c"/>
+                            <constraint firstItem="rUP-0Z-0In" firstAttribute="leading" secondItem="Rfh-sV-dyF" secondAttribute="leading" constant="25" id="88w-41-jvA"/>
+                            <constraint firstItem="4t2-XE-Lsg" firstAttribute="leading" secondItem="Rfh-sV-dyF" secondAttribute="leading" constant="25" id="DGN-fq-vdo"/>
+                            <constraint firstItem="TYp-HU-2my" firstAttribute="leading" secondItem="Rfh-sV-dyF" secondAttribute="leading" constant="30" id="Dmp-hn-S4o"/>
+                            <constraint firstItem="huo-j4-kt3" firstAttribute="top" secondItem="TYp-HU-2my" secondAttribute="bottom" constant="10" id="HDh-lf-Lv7"/>
+                            <constraint firstItem="Rfh-sV-dyF" firstAttribute="trailing" secondItem="TYp-HU-2my" secondAttribute="trailing" constant="30" id="Pca-bk-jpC"/>
+                            <constraint firstItem="huo-j4-kt3" firstAttribute="leading" secondItem="Rfh-sV-dyF" secondAttribute="leading" constant="30" id="cML-Oy-zHd"/>
+                            <constraint firstItem="Rfh-sV-dyF" firstAttribute="trailing" secondItem="rUP-0Z-0In" secondAttribute="trailing" constant="25" id="cd5-uj-bg6"/>
+                            <constraint firstItem="rUP-0Z-0In" firstAttribute="top" secondItem="huo-j4-kt3" secondAttribute="bottom" constant="10" id="gQj-nk-5h0"/>
+                            <constraint firstItem="Rfh-sV-dyF" firstAttribute="trailing" secondItem="huo-j4-kt3" secondAttribute="trailing" constant="30" id="hrU-fn-kNp"/>
+                            <constraint firstItem="Rfh-sV-dyF" firstAttribute="trailing" secondItem="4t2-XE-Lsg" secondAttribute="trailing" constant="25" id="kWP-Hb-8pp"/>
+                            <constraint firstItem="TYp-HU-2my" firstAttribute="top" secondItem="Rfh-sV-dyF" secondAttribute="top" constant="25" id="qWA-YY-zRF"/>
+                            <constraint firstItem="Rfh-sV-dyF" firstAttribute="bottom" secondItem="4t2-XE-Lsg" secondAttribute="bottom" constant="446" id="uGv-iT-UOJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="RaF-Sn-jhn"/>
+                    <connections>
+                        <outlet property="addPostBttn" destination="4t2-XE-Lsg" id="c0J-As-1yi"/>
+                        <outlet property="bodyPost" destination="rUP-0Z-0In" id="JMz-lo-F4c"/>
+                        <outlet property="lineDesign" destination="huo-j4-kt3" id="5oH-Ma-5At"/>
+                        <outlet property="titlePost" destination="TYp-HU-2my" id="61A-iW-zMe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9xv-qk-IQj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3566" y="1066"/>
         </scene>
     </scenes>
     <resources>

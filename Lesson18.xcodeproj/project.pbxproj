@@ -20,6 +20,7 @@
 		2DB599F025E65E7600654E33 /* UsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB599EF25E65E7600654E33 /* UsersVC.swift */; };
 		2DB59A0425E6601600654E33 /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB59A0325E6601600654E33 /* UserActionCell.swift */; };
 		802C7A0325F2206400704691 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C7A0225F2206400704691 /* Extension.swift */; };
+		8064B45525F90D0E0046E8B1 /* UpdateCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064B45425F90D0E0046E8B1 /* UpdateCommentVC.swift */; };
 		807CA96825F4316D00481889 /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807CA96725F4316D00481889 /* AddPostVC.swift */; };
 		807CA97025F50E9E00481889 /* Barstagle-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 807CA96F25F50E8B00481889 /* Barstagle-Regular.ttf */; };
 		8090393225EF9BEC00ABFE7B /* Albums.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8090393125EF9BEC00ABFE7B /* Albums.storyboard */; };
@@ -48,6 +49,7 @@
 		2DB599EF25E65E7600654E33 /* UsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersVC.swift; sourceTree = "<group>"; };
 		2DB59A0325E6601600654E33 /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 		802C7A0225F2206400704691 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		8064B45425F90D0E0046E8B1 /* UpdateCommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCommentVC.swift; sourceTree = "<group>"; };
 		807CA96725F4316D00481889 /* AddPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
 		807CA96F25F50E8B00481889 /* Barstagle-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barstagle-Regular.ttf"; sourceTree = "<group>"; };
 		8090393125EF9BEC00ABFE7B /* Albums.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Albums.storyboard; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				2D6ADBD525ED05A6009EE2C2 /* CommentsTVC.swift */,
+				8064B45425F90D0E0046E8B1 /* UpdateCommentVC.swift */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				80A7FFC125F3A0AD00E70A96 /* URLConstants.swift in Sources */,
 				8090394A25EFBB4700ABFE7B /* AlbumsCVCell.swift in Sources */,
 				8090393525EF9C8200ABFE7B /* AlbumsTVC.swift in Sources */,
+				8064B45525F90D0E0046E8B1 /* UpdateCommentVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
