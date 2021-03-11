@@ -8,4 +8,7 @@
   - Добавление постов
   - Кеширование изображения
   
+ ты искал ))) пустое замыкание
+ { _ in }
+  
 <a href="https://ibb.co/Xx6PcVT"><img src="https://i.ibb.co/KxBgTmH/Alamofire.jpg" alt="Alamofire" border="0"></a>
